@@ -2,13 +2,13 @@ package personnages;
 
 public class Commercant extends Humain {
 	public Commercant( String nom, int argent) {
-		super(nom, "thé",argent);
+		super(nom, "the",argent);
 	}
 	
 	public int seFaireExtroquer() {
-		int sommeExtroque = argent;
-		perdreArgent(argent);
-		parler("J’ai tout perdu! Le monde est trop injuste..."); 
+		int sommeExtroque = getArgent();
+		perdreArgent(sommeExtroque);
+		parler("J'ai tout perdu! Le monde est trop injuste..."); 
 		return sommeExtroque; 
 	}
 	

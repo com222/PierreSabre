@@ -8,16 +8,17 @@ public class Ronin extends Humain {
 	}
 	
 	public void donner(Commercant beneficiaire) {
-		int don = argent / 10;
-		argent -= don;
-		parler(beneficiaire.getName() + " prend ces " + don + " sous.");
+		int don = getArgent() / 10;
+		perdreArgent(don);
+		parler(beneficiaire.getNom() + " prend ces " + don + " sous.");
 		beneficiaire.recevoir(don);
 	}
 	
 	public void provoquer(Yakuza adversaire) {
-		parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à ce pauvre marchand!");
+		int argent = getArgent();
+		parler("Je t'ai retrouve vermine, tu vas payer pour ce que tu as fait a ce pauvre marchand!");
 		if ((honneur * 4) >= adversaire.getReputation()) {
-			parler("Je t’ai eu petit yakusa!");
+			parler("Je t'ai eu petit yakusa!");
 			gagnerArgent(adversaire.perdre()); 
 		} else {
 			honneur -= 1;
